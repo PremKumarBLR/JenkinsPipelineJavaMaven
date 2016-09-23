@@ -9,6 +9,6 @@ node('master') {
 			
 	stage 'Build'
 	steps {
-		ant('war')
+	build ant('war')
 	}
 }
