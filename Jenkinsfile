@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-node 'master' {
+node('master') {
 	stage 'Set Build Job Properties'
 	properties [[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '15', daysToKeepStr: '', numToKeepStr: '15']], [$class: 'GitLabConnectionProperty', gitLabConnection: 'Gitlab']]
 	
