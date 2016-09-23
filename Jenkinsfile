@@ -8,5 +8,6 @@ node('master') {
 	checkout changelog: false, poll: false, scm: [$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[credentialsId: '6b840d59-0135-4124-80e0-9c6dba22e854', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: 'http://10.20.16.135/svn/GrassCRM@HEAD']], workspaceUpdater: [$class: 'CheckoutUpdater']]
 			
 	stage 'Build'
-	build ant('war')
+	env.PATH = "${tool 'Ant'}/bin:${env.PATH}"
+	sh 'ant build'
 }
